@@ -8,5 +8,5 @@ Este projeto tem como objetivo simular a criação de uma nota fiscal para uma c
 
 ## Como Utilizar
 1. Preencha os campos do formulário com as informações da compra.
-2. Clique no botão "Gerar Nota Fiscal".
+2. Clique no botão "Comprar agora".
 3. Visualize a nota fiscal gerada com base nos dados fornecidos.
