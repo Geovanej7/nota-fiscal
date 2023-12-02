@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Valda Mudas e Sementes</title>
+    <!-- css reset cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet"/>
+    <!-- css do projeto -->
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+    <div id="compra">
+        <div id="topo">
+            <section id="logo">
+                <header id="valdaMS">
+                    <a href="#"><img src="fotos/Valda.png" alt=""></a>
+                </header>
+            </section><!--fim logo -->
+        </div><!--fim topo-->
+
+        <div id="dados">
+            <div id="descricao">
+                <h1>Compra de produtos</h1>
+            </div>
+            <section id="formulario">
+                <div id="entradas">
+                    <form action="" method="">
+                        <label for="nome">Cliente:</label>
+                        <input type="text" name="nome" id="nome" />
+
+                        <label for="cpfcnpj">CPF/CNPJ:</label>
+                        <input type="text" name="cnpj" id="cpfcnpj" />
+
+                        <label for="telefone">Telefone:</label>
+                        <input type="text" name="telefone" id="telefone" />
+
+                        <label for="cidade">Cidade:</label>
+                        <input type="text" name="cidade" id="cidade" />
+
+                        <label for="cep">CEP:</label>
+                        <input type="text" name="cep" id="cep" />
+                    </form>
+                </div>
+            </section> <!--fim formulario-->
+        </div><!--fim dados-->
+
+        <div id="produto">
+            <section id="escolherProduto">
+                <div>
+                    <section id="escolher">
+                        <select name="produto" id="produtoSelect">
+                            <option id="E" value="E">selecione</option>
+                            <option value="M">Mudas</option>
+                            <option value="S">Sementes</option>
+                        </select>
+                        <div id="quantidade">
+
+                            <form id="numero" method="">
+                                <input type="number" name="quantidade" id="quantidadeInput" min="1" max="100"/>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+
+                <div id="botao">
+        
+                    <button id="b">Comprar Agora</button>
+                </div>
+            </section><!--fim escolherProduto-->
+        </div><!--fim produto-->
+    </div> <!--fim compra-->
+
+    <div id="localNota">
+        <section id="nota">
+            <h2>Nota Fiscal</h2>
+
+            <table>
+                <!--dados do cliente-->
+                <tr>
+                    <td id="tNome" colspan="2">Cliente: [Nome do Cliente]</td>
+                    <td id="tCpfCnpj" colspan="2">CPF/CNPJ: [CPF/CNPJ do Cliente]</td>
+                </tr>
+                <tr>
+                    <td id="tTelefone" colspan="2">Telefone: [telefone]</td>
+                    <td id="tEndereco" colspan="2">Endereço: [Endereço do Cliente]</td>
+                </tr>
+
+                <tr>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                    <th>Preço Unitário</th>
+                    <th>Total</th>
+                </tr>
+                <tr>
+                    <td id="tProduto"></td>
+                    <td id="tQuantidade"></td>
+                    <td id="tPreco"></td>
+                    <td id="tTotal"></td>
+                </tr>
+
+                <!-- Adicione mais linhas conforme necessário -->
+
+                <!-- preço final -->
+                <tr>
+                    <td colspan="2"></td>
+                    <td colspan="1">+ imposto estadual de 20%</td>
+                    <td id="imposto"></td>
+                </tr>
+            </table>
+        </section>
+    </div><!--fim local nota-->
+
+    <script>
+
+        var botao = document.getElementById("b");
+        botao.addEventListener("click", () => {
+            // Receber valores do cliente
+            var nome = document.getElementById("nome").value;
+            var cpfcnpj = document.getElementById("cpfcnpj").value;
+            var telefone = document.getElementById("telefone").value;
+            var cidade = document.getElementById("cidade").value;
+            var cep = document.getElementById("cep").value;
+
+            // Obter valores do produto e quantidade 
+            var produtoSelect = document.getElementById("produtoSelect");
+            var produto = produtoSelect.options[produtoSelect.selectedIndex].text;
+            var quantidade = parseInt(document.getElementById("quantidadeInput").value);
+
+            //definir preço unitario 
+
+            var precoUnitario = 0;
+            switch (produto) {
+                case "Mudas":
+                    precoUnitario = 15;
+                    break;
+                case "Sementes":
+                    precoUnitario = 10;
+                    break;
+            }
+            
+
+            // calcular preço total
+            var precoTotal = precoUnitario * quantidade;
+            
+            //calcular imposto
+            var imposto = precoTotal * 0.2;
+            var precoComImposto = precoTotal + imposto;
+           
+            // Preencher tabela
+            var nomeTabela = document.getElementById("tNome");
+            nomeTabela.innerHTML = "Cliente: " + nome;
+            var cnpjTabela = document.getElementById("tCpfCnpj");
+            cnpjTabela.innerHTML = "CPF/CNPJ: " + cpfcnpj;
+            var telefoneTabela = document.getElementById("tTelefone");
+            telefoneTabela.innerHTML = "Telefone: " + telefone;
+            var enderecoTabela = document.getElementById("tEndereco");
+            enderecoTabela.innerHTML = "Endereço: " + cidade + " / " + cep;
+            var produtoTabela = document.getElementById("tProduto");
+            produtoTabela.innerHTML = produto;
+            var quantidadeTabela = document.getElementById("tQuantidade");
+            quantidadeTabela.innerHTML = quantidade;
+            var precoTabela = document.getElementById("tPreco");
+            precoTabela.innerHTML = "R$" + precoUnitario;
+            var totalTabela = document.getElementById("tTotal");
+            totalTabela.innerHTML = "R$" + precoTotal; 
+            var impostoTabela = document.getElementById("imposto");
+            impostoTabela.innerHTML = "R$" + precoComImposto;
+            ;
+
+            // mostrar a nota fiscal
+            window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: "smooth"
+             });
+             
+             //limpar campos
+            this.nome = document.getElementById("nome").value = ""
+            this.capfcnpj = document.getElementById("cpfcnpj").value = ""
+            this.telefone = document.getElementById("telefone").value = ""
+            this.cidade = document.getElementById("cidade").value = ""
+            this.cep = document.getElementById("cep").value = ""
+            this.produto = document.getElementById("produtoSelect").selectedIndex = 0
+            this.quantidade = document.getElementById("quantidadeInput").value = 1
+    
+    });
+            
+
+    </script>
+</body>
+</html>

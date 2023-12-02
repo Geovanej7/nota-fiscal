@@ -1,0 +1,124 @@
+body{
+    background-color: lightgreen;
+}
+div#compra{
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+}
+div#topo{
+    height: 5em;
+    width: 5em;
+    padding: 1em 2em;
+}
+img{
+    width: 5em;
+    height: 5em;
+}
+
+div#descricao{
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    margin-bottom: 3em;
+}
+section#formulario {
+    height: 300px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Garante que o formulário ocupa 100% da largura da seção */
+}
+
+label {
+    text-align: left;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: calc(100% - 20px); /* Usa calc para garantir que o input ocupa 100% - 20px de largura (considerando o padding) */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+div#produto{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 400px;
+    padding-top: 4em;
+}
+section#escolherProduto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3em;
+}
+section#escolher{
+    display: flex;
+    gap: 0.7em;
+    justify-content: center;
+    align-items: center;
+}
+
+div#total{
+    display: flex;
+    background-color: white;
+    width: 100px;
+    
+}
+label{ padding-right:10em;
+  
+}
+span#totalValor{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* parte da tabela*/
+div#localNota{
+    
+    height:800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+h2{
+    text-align: center;
+    padding-bottom: 1em;
+}
+section#nota {
+    background-color: whitesmoke;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 20px;
+    width: 600px;
+    height: 250px;
+}
+table {
+    background-color: white;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
