@@ -1,6 +1,6 @@
 # Gerador de Nota Fiscal 
 
-Este projeto tem como objetivo simular a criação de uma nota fiscal para uma compra fictícia, utilizando HTML, CSS e JavaScript. Durante o desenvolvimento, contei com meus conhecimentos e busquei apoio na web, além de consultar o ChatGPT para esclarecer dúvidas específicas.
+Este projeto tem como objetivo simular a criação de uma nota fiscal para uma compra, utilizando HTML, CSS e JavaScript. Durante o desenvolvimento, contei com meus conhecimentos e busquei apoio na web, além de consultar o ChatGPT para esclarecer dúvidas específicas.
 
 ## Funcionalidades
 - **Inserção de Dados**: O sistema permite a inserção de informações relacionadas a uma compra, como nome do cliente, CPF/CNPJ, telefone, cidade, CEP, produto e quantidade desejada.
